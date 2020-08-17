@@ -1,0 +1,21 @@
+{{> nav }}
+ 
+<span style="margin-top: 150px;" class="centerme">
+    <p class="error" style="color: red">{{message}}</p><br>
+    <form class="new-form" action="/login" method="post">
+        <div class="NForm">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="NForm">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="NForm">
+            <button class="button" type="submit">Log in</button>
+        </div>
+    </form>
+</span>
+
+{{#if message}}
+{{/if}}

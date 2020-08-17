@@ -1,0 +1,90 @@
+<nav class="nav">
+    <a href="/newKebab"><img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon"></a>
+    <h1 style="object-fit: contain;" class="big">KRAPP{{#if user}}{{user.username}}{{/if}}</h1>
+    <div class="nav-links">
+        <a style="margin-right: 10px;" class="button" href="/newKebab/new">Add</a><br>
+        <a style="margin-right: 5px;" class="button" href="/logout">Logout</a>
+
+    </div>
+</nav>
+
+{{> map }}
+
+<button style="margin-top: 10px; margin-left: 10px;" class="button" type="button" id="add-pin">Drop Pin</button>
+
+<span class="centerme">
+    <form class="new-form" action="/newKebab/new" method="POST">
+
+        <div class="NForm">
+            <label for="shopName">Shop name </label>
+            <input type="text" name="shopName" id="shopName">
+        </div>
+        <div class="NForm">
+            <label for="picture">Picture </label>
+            <input type="text" name="picture" id="picture">
+        </div>
+        <div class="NForm">
+            <label for="address">Address </label>
+            <input type="text" name="address" id="address">
+        </div>
+        <div class="NForm">
+            <label for="coord">Coordinates </label>
+            <input type="number" name="coord" id="coord">
+        </div>
+        <div class="NForm">
+            <label for="review">Review </label>
+            <input type="number" name="review" id="review">
+        </div>
+        <div class="NForm">
+            <label for="title">Title </label>
+            <input type="text" name="title" id="reviewTitle">
+        </div>
+        <div class="NForm">
+            <label for="date">Date </label>
+            <input type="text" name="date" id="reviewTitle">
+        </div>
+        <div class="NForm">
+            <textarea id="reviewBody" name="body" rows="4"
+                cols="50">I almost puked at the first bite because: </textarea>
+        </div>
+            <span class="buttons">
+                <button class="button" type="submit">Add</button>
+                <a style="margin-left: 30px;" class="button" href="/newKebab/">Back</a>
+            </span>
+    </form>
+</span>
+
+
+
+
+
+    
+
+{{!--------------------- this is where the map will live  -------------------------}}
+
+    {{!--------------------- this is where the map will live  -------------------------}}
+    {{!-- <div id='map' style='width: 100%; height: 500px;'></div> --}}
+
+
+
+
+
+
+<script>
+    document.getElementById('add-pin').addEventListener("click", () => {
+        const pin = addPin({
+            draggable: true,
+            coord: getCenter(),
+        })
+
+        document.getElementById('add-pin').disabled = true;
+
+
+        pin.on('drag', ()=>{
+            const coord = pin.getLngLat();
+            document.getElementById('coord').value = [coord.lat, coord.lng].join(', ')
+            //console.log(coord);
+        })
+    });
+</script>
+

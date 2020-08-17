@@ -1,0 +1,25 @@
+<nav class="nav">
+    <img style="height: 100px;"
+        src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
+    <h1 style="object-fit: contain;" class="big">KRAPP{{#if user}}{{user.username}}{{/if}}</h1>
+    <div class="nav-links">
+        <a style="margin-right: 10px;" class="button" href="/newKebab/new">Add</a><br>
+        <a style="margin-right: 5px;" class="button" href="/logout">Logout</a>
+    </div>
+</nav>
+<div class="centerme">
+    <div class="reviews">
+        <img style="width: 400px;" src="{{kebabmodel.picture}}" alt="Kebab image">
+        <h1 class="big">{{ kebabmodel.shopName }}</h1>
+        {{ kebabmodel.review }} ⭐
+        {{date}}<br>
+        {{ kebabmodel.address }}<br>
+        {{ kebabmodel.coord }}<br>
+        {{#each kebabmodel.comments}}
+        {{title}}<br>
+        {{body}}<br>
+
+        {{/each}}
+    </div>
+    <a style="margin-top: 30px" class="button" href="/newKebab">Back to kebab page</a><br>
+</div>

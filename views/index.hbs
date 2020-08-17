@@ -1,0 +1,16 @@
+<nav class="nav">
+    <img style="height: 100px;" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594220042/Krapp/icon-04_hlgowi.svg" alt="navicon">
+    <h1 style="object-fit: contain;" class="big">KRAPP {{#if user}}{{user.username}}{{/if}}</h1>
+    <div class="nav-links">
+        {{#unless user}}
+        <a style="margin-right: 10px;" class="button" href="/signup">Signup</a>
+        <a style="margin-right: 10px;" class="button" href="/login">Login</a>
+        {{else}}
+        <a class="button" href="/private">Private</a>
+        <a class="button" href="/logout">Logout</a>
+        {{/unless}}
+    </div>
+</nav>
+
+
+<img class="craplogo" src="https://res.cloudinary.com/dpqkayvki/image/upload/v1594221925/Krapp/logo-02_zepffm.svg" alt="icom">
